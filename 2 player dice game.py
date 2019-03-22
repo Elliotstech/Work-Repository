@@ -28,26 +28,26 @@ if existinguser == "yes" or existinguser == "Yes": #---if answer is yes
         counter = counter + 1
         if counter < 4:
             try:
-                user = input("Username 1: ") #---ask for password
-                Pass = input("Password 1: ") #---ask for username
+                user = input("Username 1: ") #---ask for username 1
+                Pass = input("Password 1: ") #---ask for password 1
                 if user in users: #---If username in users
                     if users.index(user) == passwords.index(Pass): #---Make them corrisponding
                         print("Login in suceeded welcome", user)
-                        user2 = input("Username 2: ")
-                        pass2 = input("Password 2: ")
+                        user2 = input("Username 2: ") #---ask for username 2
+                        pass2 = input("Password 2: ") #--- ask for password 2
                         if user in users: #---If username in users
                             if users.index(user) == passwords.index(Pass): #---Make them corrisponding
                                 print("Login in suceeded welcome", user, user2)
                                 print("Have fun with the game!")
                         Activated = True
                     else:
-                        print("Invalid password. You have had tries:" , counter) #---Else print error
+                        print("Invalid password. You have had tries:" , counter) #---Error message for invalid password
                 else:
-                    print("Invalid username. You have had tries:" , counter)
+                    print("Invalid username. You have had tries:" , counter) #---Error message for invalid username
             except ValueError:
-                print("Value Error. You have had tries:" , counter)
+                print("Value Error. You have had tries:" , counter) #---Error message for value error
         else:
-            print("Kicked")
+            print("Kicked") 
             time.sleep(10)
             counter = 0
             warning = warning + 1
@@ -71,7 +71,7 @@ else:
             Activated = True
 
 
-logindice = input("Do you want to play the dice game?: ")
+logindice = input("Do you want to play the dice game?: ") #---Start of round loop for dice game
 if logindice == "Yes" or logindice == "yes": 
     while playerround < 5:
         playerround = playerround + 1
@@ -79,15 +79,15 @@ if logindice == "Yes" or logindice == "yes":
         if startround == "Yes" or "yes":
             print(user, "rolled the first dice: " , dice1)
             print(user, "rolled the second dice: " , dice2)
-            if roundtotal % 2 == 0:
-                roundtotal = roundtotal + 10
+            if roundtotal % 2 == 0: #---If an even number is rolled
+                roundtotal = roundtotal + 10 #---Add 10 points to the round total
                 print("You have been rewarded 10 points for roling an even number.")
                 print("Your total points: " , total)
-                dice1 = random.randint(1,6)
+                dice1 = random.randint(1,6) #---Dice are random numbers from 1-6
                 dice2 = random.randint(1,6)
                 if roundtotal < 0:
                     roundtotal = 0
-            elif roundtotal % 2 > 0:
+            elif roundtotal % 2 > 0: #---If a odd number is rolled
                 roundtotal = roundtotal - 5
                 print ("you have been reducing 5 points for rolling an odd number.")
                 print("Your total points: " , total)
@@ -96,7 +96,7 @@ if logindice == "Yes" or logindice == "yes":
                 if roundtotal < 0:
                     roundtotal = 0
         total = roundtotal + total
-        if roundtotal % 2 == 0:
+        if roundtotal % 2 == 0: #---If an even number is rolled
             roundtotal = roundtotal + 10
             print("You have been rewarded 10 points for roling an even number.")
             print("Your total points: " , total)
@@ -104,9 +104,9 @@ if logindice == "Yes" or logindice == "yes":
             dice2 = random.randint(1,6)
             if roundtotal < 0:
                 roundtotal = 0
-        elif roundtotal % 2 > 0:
+        elif roundtotal % 2 > 0: #---If a odd number is rolled
             roundtotal = roundtotal - 5
-            print ("you have been reducing 5 points for rolling an odd number.")
+            print ("you have been reduced by 5 points for rolling an odd number.")
             print("Your total points: " , total)
             dice1 = random.randint(1,6)
             dice2 = random.randint(1,6)
@@ -114,3 +114,4 @@ if logindice == "Yes" or logindice == "yes":
                 roundtotal = 0
     total2 = roundtotal + total2
 
+#This is my latest project and is still in progress
