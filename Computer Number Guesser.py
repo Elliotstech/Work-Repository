@@ -16,10 +16,10 @@ try:
     while(playGame):
         try:
             number = int(input('Enter a number between 1-100: '))
-            if(number > 100):
+            if(number > 100): #--- If user number was higher than 100
                 print('Number was higher than 100. Defaulting to 50.')
                 number = 50
-            elif(number < 1):
+            elif(number < 1): #--- If user number is less than 1
                 print('Number was lower than 1. Defaulting to 50.')
                 number = 50
             else:
@@ -58,7 +58,7 @@ try:
                 playGame = False
 
 
-        except ValueError:
+        except ValueError: #---Value Error 
             number = 50
             print('Invalid input. Defaulting to 50.')
             guess = random.randint(1, 100)
